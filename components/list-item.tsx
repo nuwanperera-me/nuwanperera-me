@@ -87,7 +87,10 @@ export const ListItem = ({
               <div className="mt-2 flex items-center justify-start gap-2">
                 <p>Tech stack: </p>
                 {card.technologies?.map((item, id) => (
-                  <div key={id} className="h-5 w-5 rounded-full overflow-hidden">
+                  <div
+                    key={id}
+                    className="h-5 w-5 overflow-hidden rounded-full"
+                  >
                     <Image
                       src={item}
                       width={20}
@@ -101,18 +104,18 @@ export const ListItem = ({
             </div>
 
             {card.github && (
-              <div className="flex w-full gap-2 px-4">
+              <div className="flex w-full items-center justify-center gap-2 px-4">
                 {card.liveDemo && (
-                  <Button variant="link" size="sm" className="w-full">
-                    <Link className="inline-flex" href={card.liveDemo}>
+                  <Button variant="link" size="default" className="w-full flex items-center justify-center">
+                    <Link className="inline-flex justify-center items-center" href={card.liveDemo}>
                       Live demo <ArrowTopRightIcon />
                     </Link>
                   </Button>
                 )}
-                <Button className="w-full" variant="default" size="sm">
+                <Button className="w-full h-auto flex items-center justify-center" variant="secondary" size="default">
                   <Link href={card.github?.href}>
-                    <p className="inline-flex items-center justify-center gap-2">
-                      <GitHubLogoIcon /> / {card.github.repo}
+                    <p className="inline-flex items-center justify-center gap-1">
+                      <GitHubLogoIcon className="w-4" /> {card.github.repo}
                     </p>
                   </Link>
                 </Button>
