@@ -64,7 +64,7 @@ export default function RootLayout({
                   minSize={0.2}
                   maxSize={1.2}
                   speed={7}
-                  particleDensity={30}
+                  particleDensity={20}
                   className="h-full w-full"
                   particleDarkColor="#a1a1aa"
                   particleLightColor="#18181b"

@@ -5,10 +5,17 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
+import {
+  ChevronDownIcon,
+  GitHubLogoIcon,
+  LinkedInLogoIcon,
+} from "@radix-ui/react-icons";
 import { Button } from "@/components/ui/button";
 import { List } from "@/components/list";
-import { ListItem } from "@/components/list-item";
+import { ListItem, ListItemProp } from "@/components/list-item";
+import { profile } from "console";
+import { cn } from "@/lib/utils";
+import { NextJSIcon } from "@/components/icons";
 
 export default function Page() {
   type projectProp = {
@@ -22,26 +29,74 @@ export default function Page() {
     {
       id: 1,
       title: "Test 1",
-      description: "This is a test project",
+      shortDescription: "This is a test project",
       icon: "/tf.png",
+      card: {
+        title: "Test 1",
+        longDescription:
+          " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus debitis, incidunt sunt beatae, quos deserunt non ea autem eaque nemo suscipit excepturi! Dignissimos enim, nemo sint inventore vitae repellendus ab.",
+        banner: "/task-manager-banner.png",
+        technologies: ["/nextjs-icon.png", "/mongodb-icon.png"],
+        github: {
+          href: "#",
+          repo: "Task x"
+        },
+        liveDemo: "#",
+      },
     },
     {
       id: 2,
       title: "Test 2",
-      description: "This is a test project",
+      shortDescription: "This is a test project",
       icon: "/tf.png",
+      card: {
+        title: "Test 2",
+        longDescription:
+          " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus debitis, incidunt sunt beatae, quos deserunt non ea autem eaque nemo suscipit excepturi! Dignissimos enim, nemo sint inventore vitae repellendus ab.",
+        banner: "/todo-banner.png",
+        technologies: ["/nextjs-icon.png"],
+        github: {
+          href: "#",
+          repo: "Task x"
+        },
+        liveDemo: "#",
+      },
     },
     {
       id: 3,
       title: "Test 3",
-      description: "This is a test project",
+      shortDescription: "This is a test project",
       icon: "/tf.png",
+      card: {
+        title: "Test 3",
+        longDescription:
+          " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus debitis, incidunt sunt beatae, quos deserunt non ea autem eaque nemo suscipit excepturi! Dignissimos enim, nemo sint inventore vitae repellendus ab.",
+        banner: "/todo-banner.png",
+        technologies: ["/nextjs-icon.png"],
+        github: {
+          href: "#",
+          repo: "Task x"
+        },
+        liveDemo: "#",
+      },
     },
     {
       id: 4,
       title: "Test 4",
-      description: "This is a test project",
+      shortDescription: "This is a test project",
       icon: "/tf.png",
+      card: {
+        title: "Test 4",
+        longDescription:
+          " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus debitis, incidunt sunt beatae, quos deserunt non ea autem eaque nemo suscipit excepturi! Dignissimos enim, nemo sint inventore vitae repellendus ab.",
+        banner: "/todo-banner.png",
+        technologies: ["/nextjs-icon.png"],
+        github: {
+          href: "#",
+          repo: "Task x"
+        },
+        liveDemo: "#",
+      },
     },
   ];
 
@@ -49,8 +104,8 @@ export default function Page() {
 
   return (
     <div className="mx-auto flex min-h-[calc(100dvh_-_7rem)] w-full max-w-screen-sm flex-col items-center justify-start gap-4 p-2">
-      <section className="mt-24 flex flex-col items-center justify-center gap-3">
-        <div className="overflow-hidden rounded-full saturate-0 transition-all duration-300 hover:saturate-100">
+      <section className="mb-12 mt-24 flex flex-col items-center justify-center gap-4">
+        <div className="overflow-hidden rounded-full saturate-0 transition-all duration-300 hover:saturate-100 ">
           <Image
             width={60}
             height={60}
@@ -63,7 +118,7 @@ export default function Page() {
           I&apos;m Nuwan Perera - Developer & ML enthusiast from Sri Lanka.
           Interested in React, NextJS, Node, Typescript, Python.
         </p>
-        <div className="flex items-center justify-center gap-3">
+        <div className="flex items-center justify-center gap-2">
           <Button variant={"secondary"} size={"sm"}>
             <Link href={"#"} className="inline-flex items-center gap-2">
               <GitHubLogoIcon />
@@ -71,7 +126,7 @@ export default function Page() {
             </Link>
           </Button>
           <Button variant={"ghost"} size={"sm"}>
-            <Link href={"#"} className="inline-flex items-center gap-2">
+            <Link href={"#"} className="inline-flex items-center">
               <LinkedInLogoIcon />
             </Link>
           </Button>
@@ -98,48 +153,47 @@ export default function Page() {
           </div>
         </div>
       </section> */}
-      {/* <section className="w-full space-y-2">
+      <section className="flex w-full flex-col items-center justify-center space-y-4">
         <List title="open source projects">
           {showAllProjects
-            ? projects.map((project: projectProp) => {
+            ? projects.map((project: ListItemProp) => {
                 return (
                   <ListItem
                     id={project.id}
-                    title={""}
-                    shortDescription={""}
-                    icon={""}
-                    card={{
-                      title: "",
-                      longDescription: "",
-                      banner: "",
-                      technologies: undefined,
-                      href: "",
-                    }}
+                    title={project.title}
+                    shortDescription={project.shortDescription}
+                    icon={project.icon}
+                    card={project.card}
                   />
                 );
               })
-            : projects.splice(0, 3).map((project: projectProp) => {
+            : projects.splice(0, 3).map((project: ListItemProp) => {
                 return (
                   <ListItem
                     id={project.id}
-                    title={""}
-                    shortDescription={""}
-                    icon={""}
-                    card={{
-                      title: "",
-                      longDescription: "",
-                      banner: "",
-                      technologies: undefined,
-                      href: "",
-                    }}
+                    title={project.title}
+                    shortDescription={project.shortDescription}
+                    icon={project.icon}
+                    card={project.card}
                   />
                 );
               })}
-          <button onClick={() => setShowAllProjects(!showAllProjects)}>
-            all
-          </button>
         </List>
-      </section> */}
+        <button
+          className="inline-flex items-center gap-3 rounded-full border border-border px-4 py-2 text-sm backdrop-blur-sm hover:bg-muted active:bg-muted"
+          onClick={() => setShowAllProjects(!showAllProjects)}
+        >
+          {showAllProjects ? <p>Collapse</p> : <p>View all</p>}
+          <span>
+            <ChevronDownIcon
+              className={cn(
+                showAllProjects ? "rotate-180" : "rotate-0",
+                "transition-transform duration-200",
+              )}
+            />
+          </span>
+        </button>
+      </section>
       {/* <div className="h-[200dvh] w-full"></div> */}
     </div>
   );

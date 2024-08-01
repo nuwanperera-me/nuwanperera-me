@@ -67,3 +67,12 @@
     @apply bg-background text-foreground;
   }
 }
+
+.text-stroke {
+  background-color: hsl(var(--muted-foreground));
+  background-clip: text;
+  -webkit-text-stroke-color: transparent;
+  -webkit-text-stroke-width: calc(1em/32);
+  -webkit-background-clip: text;
+  color: hsl(var(--background));
+}

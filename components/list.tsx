@@ -5,9 +5,15 @@ type ListProps = {
 
 export const List = ({ children, title }: ListProps) => {
   return (
-    <section className={`h-auto w-full`}>
-      {title && <h1 className="inline-flex gap-2 items-center justify-center- text-lg font-semibold text-muted-foreground"><span className="text-sm">#</span> {title}</h1>}
-      <ul className="w-full flex flex-col items-center justify-center">{children}</ul>
-    </section>
+    <div className="h-auto w-full">
+      {title && (
+        <h1 id={title.replaceAll(" ", "-")} className="mb-4 inline-flex items-center gap-2 text-lg font-semibold text-muted-foreground">
+          <span className="select-none text-2xl text-stroke">#</span> {title}
+        </h1>
+      )}
+      <ul className="flex w-full flex-col items-center justify-center ">
+        {children}
+      </ul>
+    </div>
   );
 };
