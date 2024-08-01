@@ -39,7 +39,7 @@ export default function Page() {
         technologies: ["/nextjs-icon.png", "/mongodb-icon.png"],
         github: {
           href: "#",
-          repo: "Task x"
+          repo: "Task x",
         },
         liveDemo: "#",
       },
@@ -57,7 +57,7 @@ export default function Page() {
         technologies: ["/nextjs-icon.png"],
         github: {
           href: "#",
-          repo: "Task x"
+          repo: "Task x",
         },
         liveDemo: "#",
       },
@@ -75,7 +75,7 @@ export default function Page() {
         technologies: ["/nextjs-icon.png"],
         github: {
           href: "#",
-          repo: "Task x"
+          repo: "Task x",
         },
         liveDemo: "#",
       },
@@ -93,7 +93,7 @@ export default function Page() {
         technologies: ["/nextjs-icon.png"],
         github: {
           href: "#",
-          repo: "Task x"
+          repo: "Task x",
         },
         liveDemo: "#",
       },
@@ -156,9 +156,10 @@ export default function Page() {
       <section className="flex w-full flex-col items-center justify-center space-y-4">
         <List title="open source projects">
           {showAllProjects
-            ? projects.map((project: ListItemProp) => {
+            ? projects.map((project: ListItemProp, id: number) => {
                 return (
                   <ListItem
+                  key={id}
                     id={project.id}
                     title={project.title}
                     shortDescription={project.shortDescription}
@@ -167,9 +168,10 @@ export default function Page() {
                   />
                 );
               })
-            : projects.splice(0, 3).map((project: ListItemProp) => {
+            : projects.splice(0, 3).map((project: ListItemProp, id: number) => {
                 return (
                   <ListItem
+                  key={id}
                     id={project.id}
                     title={project.title}
                     shortDescription={project.shortDescription}

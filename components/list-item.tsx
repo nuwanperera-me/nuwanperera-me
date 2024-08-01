@@ -87,10 +87,9 @@ export const ListItem = ({
               <div className="mt-2 flex items-center justify-start gap-2">
                 <p>Tech stack: </p>
                 {card.technologies?.map((item, id) => (
-                  <div className="h-5 w-5 rounded-full overflow-hidden">
+                  <div key={id} className="h-5 w-5 rounded-full overflow-hidden">
                     <Image
                       src={item}
-                      key={id}
                       width={20}
                       height={20}
                       alt={""}
