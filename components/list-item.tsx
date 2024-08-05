@@ -106,19 +106,30 @@ export const ListItem = ({
             {card.github && (
               <div className="flex w-full items-center justify-center gap-2 px-4">
                 {card.liveDemo && (
-                  <Button variant="link" size="default" className="w-full flex items-center justify-center">
-                    <Link className="inline-flex justify-center items-center" href={card.liveDemo}>
+                  <Link
+                    className="w-full"
+                    href={card.liveDemo}
+                  >
+                    <Button
+                      variant="link"
+                      size="default"
+                      className="w-full flexitems-center justify-center"
+                    >
                       Live demo <ArrowTopRightIcon />
-                    </Link>
-                  </Button>
+                    </Button>
+                  </Link>
                 )}
-                <Button className="w-full h-auto flex items-center justify-center" variant="secondary" size="default">
-                  <Link href={card.github?.href}>
+                <Link href={card.github?.href} className="w-full">
+                  <Button
+                    className="w-full flex items-center justify-center"
+                    size="default"
+                    variant="secondary"
+                  >
                     <p className="inline-flex items-center justify-center gap-1">
                       <GitHubLogoIcon className="w-4" /> {card.github.repo}
                     </p>
-                  </Link>
-                </Button>
+                  </Button>
+                </Link>
               </div>
             )}
           </DialogHeader>
