@@ -53,21 +53,21 @@ export default function RootLayout({
         <Providers>
           <ThemeProvider
             attribute="class"
-            defaultTheme="light"
+            defaultTheme="dark"
             disableTransitionOnChange
           >
             <main className="relative flex flex-col items-center">
-              <div className="fixed inset-0 -z-50 h-screen w-full">
+              <div className="fixed inset-0 -z-50 h-screen w-full bg-zinc-200-">
                 <SparklesCore
                   id="tsparticlesfullpage"
                   background="transparent"
-                  minSize={0.2}
-                  maxSize={1.2}
-                  speed={7}
-                  particleDensity={20}
-                  className="h-full w-full"
-                  particleDarkColor="#a1a1aa"
-                  particleLightColor="#18181b"
+                  minSize={0.6}
+                  maxSize={1.6}
+                  speed={1}
+                  particleDensity={4}
+                  className="h-full w-full blur-xl-"
+                  particleDarkColor="#e4e4e7"
+                  particleLightColor="#27272a"
                 />
               </div>
               {children}

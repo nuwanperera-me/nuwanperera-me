@@ -11,7 +11,7 @@ export const List = ({ children, title }: ListProps) => {
           <span className="select-none text-2xl text-stroke">#</span> {title}
         </h1>
       )}
-      <ul className="flex w-full flex-col items-center justify-center ">
+      <ul className="flex w-full flex-col items-center justify-center">
         {children}
       </ul>
     </div>

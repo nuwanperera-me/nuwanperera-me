@@ -54,8 +54,8 @@ export const ListItem = ({
             <div className="overflow-hidden rounded-sm">
               <Image
                 src={icon}
-                width={64}
-                height={64}
+                width={56}
+                height={56}
                 alt=""
                 className="transition-transform duration-300 group-hover:scale-110"
               />

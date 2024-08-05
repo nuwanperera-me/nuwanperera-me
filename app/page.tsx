@@ -9,13 +9,12 @@ import {
   ChevronDownIcon,
   GitHubLogoIcon,
   LinkedInLogoIcon,
+  ArrowTopRightIcon,
 } from "@radix-ui/react-icons";
 import { Button } from "@/components/ui/button";
 import { List } from "@/components/list";
 import { ListItem, ListItemProp } from "@/components/list-item";
-import { profile } from "console";
 import { cn } from "@/lib/utils";
-import { NextJSIcon } from "@/components/icons";
 
 export default function Page() {
   type projectProp = {
@@ -103,7 +102,7 @@ export default function Page() {
   const [showAllProjects, setShowAllProjects] = useState(false);
 
   return (
-    <div className="mx-auto flex min-h-[calc(100dvh_-_7rem)] w-full max-w-screen-sm flex-col items-center justify-start gap-4 p-2">
+    <div className="mx-auto flex min-h-[calc(100dvh_-_7rem)] w-full max-w-screen-sm flex-col items-center justify-start gap-4 px-4">
       <section className="mb-12 mt-24 flex flex-col items-center justify-center gap-4">
         <div className="overflow-hidden rounded-full saturate-0 transition-all duration-300 hover:saturate-100 ">
           <Image
@@ -132,34 +131,49 @@ export default function Page() {
           </Button>
         </div>
       </section>
-      {/* <section className="w-full space-y-2">
-        <h1 className="text-xl font-semibold">Working on</h1>
-        <div>
-          <div className="w-24 overflow-hidden rounded-md border border-border ">
+      <section className="w-full space-y-2">
+        <h1 className="mb-4 inline-flex items-center gap-2 text-lg font-semibold text-muted-foreground">
+          <span className="text-stroke select-none text-2xl">#</span> working on
+        </h1>
+        <div className="h-auto w-full rounded-md sm:rounded-xl border border-border bg-gradient-to-br from-muted via-secondary to-muted p-3 sm:p-6">
+          <h1 className="text-sm font-semibold inline-flex items-center mb-2">Taskify <span><ArrowTopRightIcon height={12} width={12} /></span></h1>
+          <div className="w-full overflow-hidden rounded-sm">
             <Image
-              className=" transition-transform duration-300 hover:scale-110"
-              width={96}
-              height={96}
+              className=" transition-transform duration-300"
+              width={640}
+              height={320}
               priority
-              src="/todo.png"
+              src="/og-image.png"
               alt="Task manager banner"
             />
           </div>
-          <div className="text-muted-foreground">
-            <h2 className="text-base font-normal">Task Manager</h2>
-            <p className="text-sm font-normal">
-              Open source Task management web app
+        </div>
+        {/* <div>
+          <div className="flex flex-col gap-2 my-4">
+            <h2 className="text-lg font-semibold text-secondary-foreground">Task Manager</h2>
+            <p className="text-sm font-normal text-muted-foreground">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
             </p>
           </div>
-        </div>
-      </section> */}
-      <section className="flex w-full flex-col items-center justify-center space-y-4">
+          <div className="w-full overflow-hidden rounded-md border border-border">
+            <Image
+              className=" transition-transform duration-300 hover:scale-105"
+              width={640}
+              height={320}
+              priority
+              src="/og-image.png"
+              alt="Task manager banner"
+            />
+          </div>
+        </div> */}
+      </section>
+      <section className="flex w-full flex-col items-center justify-center space-y-2">
         <List title="open source projects">
           {showAllProjects
             ? projects.map((project: ListItemProp, id: number) => {
                 return (
                   <ListItem
-                  key={id}
+                    key={id}
                     id={project.id}
                     title={project.title}
                     shortDescription={project.shortDescription}
@@ -171,7 +185,50 @@ export default function Page() {
             : projects.splice(0, 3).map((project: ListItemProp, id: number) => {
                 return (
                   <ListItem
-                  key={id}
+                    key={id}
+                    id={project.id}
+                    title={project.title}
+                    shortDescription={project.shortDescription}
+                    icon={project.icon}
+                    card={project.card}
+                  />
+                );
+              })}
+        </List>
+        <button
+          className="inline-flex items-center gap-3 rounded-full border border-border px-4 py-2 text-sm backdrop-blur-sm hover:bg-muted active:bg-muted"
+          onClick={() => setShowAllProjects(!showAllProjects)}
+        >
+          {showAllProjects ? <p>Collapse</p> : <p>View all</p>}
+          <span>
+            <ChevronDownIcon
+              className={cn(
+                showAllProjects ? "rotate-180" : "rotate-0",
+                "transition-transform duration-200",
+              )}
+            />
+          </span>
+        </button>
+      </section>
+      <section className="flex w-full flex-col items-center justify-center space-y-2">
+        <List title="articles @lts">
+          {showAllProjects
+            ? projects.map((project: ListItemProp, id: number) => {
+                return (
+                  <ListItem
+                    key={id}
+                    id={project.id}
+                    title={project.title}
+                    shortDescription={project.shortDescription}
+                    icon={project.icon}
+                    card={project.card}
+                  />
+                );
+              })
+            : projects.splice(0, 3).map((project: ListItemProp, id: number) => {
+                return (
+                  <ListItem
+                    key={id}
                     id={project.id}
                     title={project.title}
                     shortDescription={project.shortDescription}
