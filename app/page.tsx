@@ -131,19 +131,24 @@ export default function Page() {
           </Button>
         </div>
       </section>
-      <section className="w-full space-y-2">
+      <section className="w-full space-y-2 mb-4">
         <h1 className="mb-4 inline-flex items-center gap-2 text-lg font-semibold text-muted-foreground">
           <span className="text-stroke select-none text-2xl">#</span> working on
         </h1>
-        <div className="h-auto w-full rounded-md sm:rounded-xl border border-border bg-gradient-to-br from-muted via-secondary to-muted p-3 sm:p-6">
-          <h1 className="text-sm font-semibold inline-flex items-center mb-2">Taskify <span><ArrowTopRightIcon height={12} width={12} /></span></h1>
-          <div className="w-full overflow-hidden rounded-sm">
+        <div className="group relative h-auto w-full cursor-pointer rounded-md border border-border bg-gradient-to-br from-muted via-secondary to-muted p-3 sm:rounded-xl">
+          <h1 className="absolute left-8 top-8 z-10 mb-2 inline-flex items-center text-lg font-semibold text-zinc-100 group-hover:text-white transition-colors duration-300">
+            Taskify
+            <span>
+              <ArrowTopRightIcon height={20} width={20} className="translate-y-0.5 -translate-x-0.5 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-300" />
+            </span>
+          </h1>
+          <div className="w-full overflow-hidden rounded-md drop-shadow-md">
             <Image
-              className=" transition-transform duration-300"
-              width={640}
-              height={320}
+              className="transition-transform duration-300 group-hover:scale-105"
+              width={1920}
+              height={1440}
               priority
-              src="/og-image.png"
+              src="/project-working-on.png"
               alt="Task manager banner"
             />
           </div>
